@@ -111,18 +111,22 @@ h1 { margin-bottom: 24px; font-size: clamp(49px, 6vw, 78px); font-weight: 600; l
 .social-icon { display: block; width: 16px; height: 16px; }
 .hero-socials a span { font-size: 9px; }
 .social-caption { color: var(--quiet); font-size: 9px; }
-.hero-art { position: relative; width: min(100%, 475px); justify-self: end; padding: 28px 25px 30px 30px; }
-.art-index { position: absolute; z-index: 2; top: 2px; left: 30px; color: var(--cyan); font: 10px var(--font-mono); }
-.hero-image-frame { position: relative; width: 100%; aspect-ratio: .91; overflow: hidden; background: var(--ink-card); }
-.hero-image-frame img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.75) contrast(1.05); }
-.image-wash { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgb(8 19 33 / 50%)), linear-gradient(100deg, rgb(8 19 33 / 14%), transparent 65%); }
-.hero-image-frame::after { position: absolute; inset: 0; border: 1px solid rgb(124 228 210 / 25%); content: ""; }
-.image-stamp { position: absolute; right: 18px; bottom: 17px; display: flex; align-items: center; gap: 9px; padding: 10px 12px; background: var(--cyan); color: var(--ink); font: 500 9px/1.35 var(--font-mono); }
-.stamp-spark { font-size: 20px; }
-.art-note { position: absolute; top: 43%; left: -44px; display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 10px; line-height: 1.55; }
-.art-note strong { color: var(--text); font-weight: 500; }
-.note-line { width: 22px; height: 1px; background: var(--cyan); }
-.art-coordinate { position: absolute; right: 3px; bottom: 0; color: var(--quiet); font: 9px var(--font-mono); }
+.hero-art { position: relative; width: min(100%, 475px); justify-self: end; padding: 12px 8px 0; }
+.hero-art::before { position: absolute; z-index: 0; top: 43%; left: 50%; width: 78%; aspect-ratio: 1; transform: translate(-50%, -50%); border: 1px solid rgb(124 228 210 / 68%); border-radius: 50%; background: radial-gradient(circle, rgb(124 228 210 / 13%), transparent 67%); box-shadow: 0 0 14px rgb(124 228 210 / 46%), inset 0 0 24px rgb(101 184 255 / 12%); content: ""; }
+.hero-art::after { position: absolute; z-index: 0; top: 11%; right: 7%; width: 110px; aspect-ratio: 1; border-radius: 50%; background: rgb(101 184 255 / 13%); filter: blur(36px); content: ""; pointer-events: none; }
+.hero-image-frame { position: relative; width: 100%; aspect-ratio: .82; overflow: hidden; background: transparent; }
+.hero-profile-frame { z-index: 1; }
+.hero-profile-frame img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: grayscale(1) contrast(1.12) brightness(1.16); mix-blend-mode: screen; mask-image: linear-gradient(180deg, #000 0%, #000 74%, transparent 100%); }
+.hero-profile-frame::after { display: none; }
+.profile-chip { position: absolute; z-index: 3; display: grid; min-width: 145px; grid-template-columns: 28px 1fr 12px; align-items: center; gap: 9px; padding: 11px 12px; border: 1px solid rgb(124 228 210 / 25%); border-radius: 8px; background: linear-gradient(135deg, rgb(16 33 48 / 92%), rgb(8 19 33 / 84%)); box-shadow: inset 0 1px rgb(255 255 255 / 8%), 0 12px 28px rgb(0 0 0 / 24%); backdrop-filter: blur(12px); }
+.profile-chip-ai { top: 35%; left: -18px; }
+.profile-chip-dev { top: 17%; right: -14px; }
+.profile-chip-solver { right: 2px; bottom: 17%; }
+.profile-chip-mark { color: var(--cyan); font: 500 12px var(--font-mono); text-align: center; }
+.profile-chip-text { display: flex; flex-direction: column; color: var(--text); font-size: 11px; line-height: 1.35; }
+.profile-chip-text strong { font-weight: 600; }
+.profile-chip-text small { color: var(--muted); font: inherit; }
+.profile-chip-arrow { width: 12px; height: 12px; opacity: .8; }
 .scroll-cue { position: absolute; bottom: 0; left: 24px; display: flex; align-items: center; gap: 11px; color: var(--quiet); font: 9px var(--font-mono); }
 .scroll-cue-line { display: block; width: 32px; height: 1px; background: var(--cyan); }
 
@@ -286,7 +290,6 @@ h1 { margin-bottom: 24px; font-size: clamp(49px, 6vw, 78px); font-weight: 600; l
   .hero-intro { max-width: 520px; font-size: 15px; }
   .hero-art { width: min(85%, 390px); justify-self: center; margin: 17px 0 26px 14px; }
   .hero-image-frame { aspect-ratio: 1.05; }
-  .art-note { left: -43px; }
   .scroll-cue { bottom: -5px; left: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 38px; }
   .about-portrait { width: min(76%, 390px); }
