@@ -88,7 +88,7 @@ function renderProjects(filter = "all") {
       <button class="project-image project-open-button" type="button" data-open-project="${project.id}" aria-label="Lihat detail ${project.title}">
         <img src="${project.image}" alt="${project.imageAlt}" loading="lazy" width="1200" height="680">
         <span class="project-index">0${index + 1} / 0${projects.length}</span>
-        <span class="project-open" aria-hidden="true"><span class="arrow-image"></span></span>
+        <span class="project-open" aria-hidden="true"><img class="arrow-image" src="assets/icon/arrow.png" alt=""></span>
       </button>
       <div class="project-meta">
         <p class="project-category">${project.categoryLabel} <span>· CONCEPT</span></p>
