@@ -36,6 +36,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .section-shell { position: relative; padding-block: 104px; }
 .skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; transform: translateY(-150%); padding: 10px 16px; background: var(--cyan); color: var(--ink); font-weight: 700; }
 .skip-link:focus { transform: translateY(0); }
+.hello-loader { position: fixed; z-index: 120; inset: 0; display: grid; align-content: center; justify-items: center; gap: 22px; background: var(--ink); color: var(--text); opacity: 1; transition: opacity 500ms ease; }
+.hello-loader.is-dismissing { opacity: 0; pointer-events: none; }
+.hello-loader-mark { width: min(440px, 76vw); height: auto; overflow: visible; }
+.hello-loader-path { stroke-dasharray: 1; stroke-dashoffset: 1; stroke-linecap: round; }
+.hello-loader-path-first { animation: hello-draw-first 800ms ease-in-out forwards; }
+.hello-loader-path-last { animation: hello-draw-last 2800ms 700ms ease-in-out forwards; }
+.hello-loader-caption { color: var(--quiet); font: 9px var(--font-mono); }
+@keyframes hello-draw-first { to { stroke-dashoffset: 0; } }
+@keyframes hello-draw-last { to { stroke-dashoffset: 0; } }
 .scroll-progress { position: fixed; z-index: 70; inset: 0 0 auto; height: 2px; pointer-events: none; }
 .scroll-progress span { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--blue), var(--cyan), var(--lime)); }
 

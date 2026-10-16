@@ -54,10 +54,20 @@ const projects = [
 ];
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const helloLoader = document.querySelector("#hello-loader");
 const projectGrid = document.querySelector("#project-grid");
 const dialog = document.querySelector("#project-dialog");
 const toast = document.querySelector("#toast");
 let toastTimer;
+
+function dismissHelloLoader() {
+  if (!helloLoader || helloLoader.classList.contains("is-dismissing")) return;
+  helloLoader.classList.add("is-dismissing");
+  window.setTimeout(() => helloLoader.remove(), 550);
+}
+
+document.querySelector("#hello-loader-finish")?.addEventListener("animationend", dismissHelloLoader, { once: true });
+window.setTimeout(dismissHelloLoader, reducedMotion ? 250 : 4500);
 
 document.querySelectorAll(".specular-button").forEach((button) => {
   button.addEventListener("focus", () => button.classList.add("is-specular-active"));
