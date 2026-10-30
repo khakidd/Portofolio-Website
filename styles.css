@@ -160,10 +160,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   padding: 6px 9px 6px 18px; 
   border: 1px solid rgb(222 247 255 / 27%); 
   border-radius: 999px; 
-  background: linear-gradient(145deg, rgb(218 244 255 / 13%), rgb(160 204 219 / 5%) 48%, rgb(225 248 255 / 9%)); 
+  background: linear-gradient(145deg, rgb(218 244 255 / 16%), rgb(160 204 219 / 8%) 48%, rgb(225 248 255 / 12%));
   box-shadow: inset 0 1px rgb(255 255 255 / 27%), inset 0 -1px rgb(147 207 222 / 12%), 0 14px 38px rgb(0 0 0 / 22%); 
-  backdrop-filter: blur(24px) saturate(155%);
-   -webkit-backdrop-filter: blur(24px) saturate(155%); 
+  backdrop-filter: blur(30px) saturate(165%);
+  -webkit-backdrop-filter: blur(30px) saturate(165%);
    transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease; 
   }
 .nav-wrap::before { 
@@ -1468,11 +1468,11 @@ h1 {
     transform: translateY(-3.5px) rotate(-45deg); 
   }
   .nav-menu { 
-    position: fixed; 
-    top: 70px; 
-    right: 14px; 
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
     display: flex; 
-    width: min(82vw, 350px); 
+    width: min(350px, 100%);
     flex-direction: column; 
     align-items: stretch; 
     justify-content: center; 
@@ -1480,15 +1480,22 @@ h1 {
     padding: 22px; 
     border: 1px solid rgb(222 247 255 / 28%); 
     border-radius: 24px; 
-    background: linear-gradient(145deg, rgb(34 55 75 / 54%), rgb(8 19 33 / 68%) 52%, rgb(16 48 57 / 56%));
+    background: linear-gradient(145deg, rgb(34 55 75 / 78%), rgb(8 19 33 / 86%) 52%, rgb(16 48 57 / 82%));
     box-shadow: inset 0 1px rgb(255 255 255 / 22%), 0 18px 50px rgb(0 0 0 / 35%); 
     backdrop-filter: blur(30px) saturate(165%);
     -webkit-backdrop-filter: blur(30px) saturate(165%);
-    transform: translateX(110%); 
-    transition: transform 240ms ease; 
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 180ms ease, transform 240ms ease, visibility 0s linear 240ms;
   }
   .nav-menu.is-open { 
-    transform: translateX(0); 
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
   }
   .nav-link { 
     min-height: 50px; 

@@ -10,7 +10,6 @@ if (!mountNode) {
 createRoot(mountNode).render(
   <ProfileCard
     avatarUrl={`${import.meta.env.BASE_URL}assets/img/profil.png`}
-    miniAvatarUrl={`${import.meta.env.BASE_URL}assets/img/profil.png`}
     name="Rakharsya Fatra"
     title="Frontend Developer"
     handle="khakidd"
