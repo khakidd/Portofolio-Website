@@ -1480,10 +1480,10 @@ h1 {
     padding: 22px; 
     border: 1px solid rgb(222 247 255 / 28%); 
     border-radius: 24px; 
-    background: linear-gradient(145deg, rgb(34 55 75 / 88%), rgb(8 19 33 / 94%) 52%, rgb(16 48 57 / 90%)); 
+    background: linear-gradient(145deg, rgb(34 55 75 / 54%), rgb(8 19 33 / 68%) 52%, rgb(16 48 57 / 56%));
     box-shadow: inset 0 1px rgb(255 255 255 / 22%), 0 18px 50px rgb(0 0 0 / 35%); 
-    backdrop-filter: blur(24px) saturate(155%); 
-    -webkit-backdrop-filter: blur(24px) saturate(155%); 
+    backdrop-filter: blur(30px) saturate(165%);
+    -webkit-backdrop-filter: blur(30px) saturate(165%);
     transform: translateX(110%); 
     transition: transform 240ms ease; 
   }
