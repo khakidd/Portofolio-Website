@@ -27,7 +27,7 @@
         "sameAs": ["https://github.com/", "https://www.linkedin.com/"]
       }
     </script>
-    <script src="script.js" defer></script>
+    <script type="module" src="script.js"></script>
   </head>
   <body>
     <div class="hello-loader" id="hello-loader" role="status" aria-label="Memuat portofolio">
@@ -96,26 +96,7 @@
             </div>
           </div>
 
-          <div class="hero-art reveal" aria-label="Potret Rakha dan bidang keahlian">
-            <div class="hero-image-frame hero-profile-frame">
-              <img src="assets/img/profil.png" alt="Potret hitam-putih Rakha" fetchpriority="high" width="1087" height="1536">
-            </div>
-            <div class="profile-chip profile-chip-ai">
-              <span class="profile-chip-mark" aria-hidden="true">AI</span>
-              <span class="profile-chip-text"><strong>AI</strong><small>Enthusiast</small></span>
-              <img class="profile-chip-arrow" src="assets/icon/arrow.png" alt="" aria-hidden="true">
-            </div>
-            <div class="profile-chip profile-chip-dev">
-              <span class="profile-chip-mark" aria-hidden="true">&lt;/&gt;</span>
-              <span class="profile-chip-text"><strong>Frontend</strong><small>Developer</small></span>
-              <img class="profile-chip-arrow" src="assets/icon/arrow.png" alt="" aria-hidden="true">
-            </div>
-            <div class="profile-chip profile-chip-solver">
-              <span class="profile-chip-mark" aria-hidden="true">{ }</span>
-              <span class="profile-chip-text"><strong>Problem</strong><small>Solver</small></span>
-              <img class="profile-chip-arrow" src="assets/icon/arrow.png" alt="" aria-hidden="true">
-            </div>
-          </div>
+          <div id="hero-profile-root" class="hero-art reveal" aria-label="Potret Rakha"></div>
           <a class="scroll-cue" href="#about"><span class="scroll-cue-line"></span><span>SCROLL TO EXPLORE</span></a>
         </div>
       </section>
@@ -136,9 +117,10 @@
               <p class="about-lead">I like to turn complex things into simple experiences that are easy to use and memorable.</p>
               <p class="body-copy">My focus is at the intersection of design and technology: creating fast, accessible interfaces that still have character. I enjoy the process from the first sketch to the final details before a product is released.</p>
               <p class="body-copy">I'm always open to good collaboration, new challenges, and conversations about digital products.</p>
-              <div class="about-facts">
+              <div class="about-facts reveal">
+                <div class="fact"><span class="fact-number" data-count="1" data-suffix=" year">0</span><span class="fact-label">PROFESSIONAL EXP</span></div>
+                <div class="fact"><span class="fact-number" data-count="8" data-suffix="+">0</span><span class="fact-label">TECH &amp; TOOLS</span></div>
                 <div class="fact"><span class="fact-number" data-count="5">0</span><span class="fact-label">OUTSTANDING CONCEPTS</span></div>
-                <div class="fact"><span class="fact-number" data-count="4">0</span><span class="fact-label">AREA OF EXPERTISE</span></div>
                 <div class="fact"><span class="fact-number" data-count="100" data-suffix="%">0</span><span class="fact-label">CURIOSITY LEVEL</span></div>
               </div>
               <a class="text-link" href="assets/pdf/CV Rakharsya.pdf">Preview CV</a>
@@ -235,5 +217,6 @@
       <div class="dialog-content"><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p id="dialog-description"></p><div class="dialog-tags" id="dialog-tags"></div><div class="dialog-links"><a class="button button-primary specular-button" id="dialog-demo" href="https://example.com/" target="_blank" rel="noreferrer">Live Demo <img class="arrow-image" src="assets/icon/arrow.png" alt="" aria-hidden="true"></a><a class="button button-quiet specular-button" id="dialog-source" href="https://github.com/" target="_blank" rel="noreferrer">Source Code <img class="arrow-image" src="assets/icon/arrow.png" alt="" aria-hidden="true"></a></div></div>
     </dialog>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

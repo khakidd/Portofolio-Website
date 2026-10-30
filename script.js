@@ -208,11 +208,11 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
 let countsStarted = false;
-const aboutSection = document.querySelector("#about");
+const aboutFacts = document.querySelector(".about-facts");
 const countObserver = new IntersectionObserver((entries) => {
   if (countsStarted || !entries.some((entry) => entry.isIntersecting)) return;
   countsStarted = true;
-  document.querySelectorAll(".fact-number").forEach((counter) => {
+  aboutFacts.querySelectorAll(".fact-number").forEach((counter) => {
     const target = Number(counter.dataset.count);
     const suffix = counter.dataset.suffix || "";
     if (reducedMotion) {
@@ -229,7 +229,7 @@ const countObserver = new IntersectionObserver((entries) => {
     window.requestAnimationFrame(tick);
   });
 }, { threshold: 0.25 });
-countObserver.observe(aboutSection);
+countObserver.observe(aboutFacts);
 
 const roles = ["Frontend Developer", "UI Engineer", "Creative Builder"];
 const roleElement = document.querySelector(".typed-role");
