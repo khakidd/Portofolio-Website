@@ -9,7 +9,7 @@ const projects = [
     imageAlt: "Design and typography mood board on the desk",
     tags: ["Laravel", "PHP", "SQLite"],
     features: "Comprehensive information about Gatak Village, clear infographics, the latest news, and an easily accessible photo album.",
-    demo: "https://example.com/",
+    demo: "https://github.com/khakidd/Website-Profile-Dusun-Gatak",
     source: "https://github.com/khakidd/Website-Profile-Dusun-Gatak"
   },
   {
@@ -22,7 +22,7 @@ const projects = [
     imageAlt: "The process of borrowing digital books through laptop and phone devices",
     tags: ["PHP", "MySQL", "UX"],
     features: "Book collection management system, loan tracking, and library usage data analysis.",
-    demo: "https://example.com/",
+    demo: "https://github.com/khakidd/Perpustakaan-Digital-BookHouse",
     source: "https://github.com/khakidd/Perpustakaan-Digital-BookHouse"
   },
   {
@@ -36,7 +36,7 @@ const projects = [
     tags: ["React", "E-commerce", "Figma"],
     features: "A concise catalog, product stories, transparent shipping information, and a mobile-friendly checkout process.",
     demo: "https://www.figma.com/proto/hN3DzvBoVkrgMrUFyzAy1D/Avana?node-id=29-612&p=f&t=OIpdbaGIvZ4SrAFV-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=65%3A8669&show-proto-sidebar=1",
-    source: "https://github.com/"
+    source: "https://github.com/khakidd"
   },
   {
     id: "Scheduling-App",
@@ -108,17 +108,21 @@ function renderProjects(filter = "all") {
   const visibleProjects = projects.filter((project) => filter === "all" || project.category === filter);
   projectGrid.innerHTML = visibleProjects.map((project, index) => `
     <article class="project-card reveal is-visible" data-project="${project.id}">
-      <button class="project-image project-open-button" type="button" data-open-project="${project.id}" aria-label="Lihat detail ${project.title}">
-        <img src="${project.image}" alt="${project.imageAlt}" loading="lazy" width="1200" height="680">
-        <span class="project-index">0${index + 1} / 0${projects.length}</span>
-        <span class="project-open" aria-hidden="true"><img class="arrow-image" src="assets/icon/arrow.png" alt=""></span>
-      </button>
-      <div class="project-meta">
+      <a class="project-card-trigger" href="#project-dialog" data-open-project="${project.id}" aria-haspopup="dialog" aria-label="Lihat detail ${project.title}">
+        <span class="project-image">
+          <img src="${project.image}" alt="${project.imageAlt}" loading="lazy" width="1200" height="680">
+          <span class="project-index">0${index + 1} / 0${projects.length}</span>
+          <span class="project-badge">${project.categoryLabel.split("/").pop().trim()}</span>
+          <span class="project-notch" aria-hidden="true"><span></span></span>
+          <span class="project-open" aria-hidden="true"><img class="arrow-image" src="assets/icon/arrow.png" alt=""></span>
+        </span>
+        <div class="project-meta">
         <p class="project-category">${project.categoryLabel} <span>· CONCEPT</span></p>
         <h3>${project.title}</h3>
         <p>${project.description}</p>
         <div class="project-tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
-      </div>
+        </div>
+      </a>
     </article>
   `).join("");
 }
@@ -135,9 +139,10 @@ function openProject(projectId) {
   if (!project) return;
   document.querySelector("#dialog-title").textContent = project.title;
   document.querySelector("#dialog-category").textContent = `${project.categoryLabel} · CONCEPT`;
-  document.querySelector("#dialog-description").textContent = `${project.description} ${project.features}`;
+  document.querySelector("#dialog-description").textContent = project.description;
   document.querySelector("#dialog-image").src = project.image;
   document.querySelector("#dialog-image").alt = project.imageAlt;
+  document.querySelector("#dialog-badge").textContent = project.categoryLabel.split("/").pop().trim();
   document.querySelector("#dialog-tags").innerHTML = project.tags.map((tag) => `<span>${tag}</span>`).join("");
   document.querySelector("#dialog-demo").href = project.demo;
   document.querySelector("#dialog-source").href = project.source;
@@ -276,7 +281,10 @@ document.querySelectorAll("[data-project-filter]").forEach((button) => {
 
 projectGrid.addEventListener("click", (event) => {
   const trigger = event.target.closest("[data-open-project]");
-  if (trigger) openProject(trigger.dataset.openProject);
+  if (trigger) {
+    event.preventDefault();
+    openProject(trigger.dataset.openProject);
+  }
 });
 document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", (event) => {
