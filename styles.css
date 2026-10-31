@@ -163,7 +163,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   background: linear-gradient(145deg, rgb(218 244 255 / 16%), rgb(160 204 219 / 8%) 48%, rgb(225 248 255 / 12%));
   box-shadow: inset 0 1px rgb(255 255 255 / 27%), inset 0 -1px rgb(147 207 222 / 12%), 0 14px 38px rgb(0 0 0 / 22%); 
   backdrop-filter: blur(30px) saturate(165%);
-  -webkit-backdrop-filter: blur(30px) saturate(165%);
    transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease; 
   }
 .nav-wrap::before { 
