@@ -1686,6 +1686,9 @@ h1 {
     padding-top: 103px; 
     padding-bottom: 68px; 
   }
+  .hero-intro {
+    min-height: 5.25em;
+  }
   .eyebrow { 
     font-size: 9px; 
   }
@@ -1769,6 +1772,12 @@ h1 {
   }
   .dialog-content h2 { 
     font-size: 28px; 
+  }
+}
+
+@media (max-width: 351px) {
+  .hero-intro {
+    min-height: 7em;
   }
 }
 
