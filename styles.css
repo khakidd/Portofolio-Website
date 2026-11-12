@@ -292,6 +292,23 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   padding-top: 142px; 
   padding-bottom: 92px; 
   overflow: hidden; 
+  background: linear-gradient(180deg, var(--ink) 0%, var(--ink) 72%, var(--ink-soft) 100%);
+}
+.hero-galaxy-root {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+.hero-galaxy-root::after {
+  position: absolute;
+  inset: 70% 0 0;
+  background: linear-gradient(180deg, transparent, var(--ink-soft));
+  content: "";
+  pointer-events: none;
+}
+.hero-grid {
+  z-index: 1;
 }
 .hero::before { 
   position: absolute; 
@@ -586,8 +603,7 @@ h1 {
 
 /* ==== ABOUT ==== */
 .about { 
-  border-top: 1px solid rgb(32 51 75 / 60%); 
-  background: var(--ink-soft); 
+  background: linear-gradient(180deg, var(--ink-soft) 0%, var(--ink-soft) 72%, var(--ink) 100%);
 }
 .section-heading { 
   margin-bottom: 44px; 
@@ -614,7 +630,7 @@ h1 {
   position: relative; 
   max-width: 390px; 
   aspect-ratio: .9; 
-  background: var(--ink-card); 
+  background: var(--ink-card);
 }
 .about-portrait img { 
   width: 100%; 
@@ -710,7 +726,7 @@ h1 {
 
 /* ==== SKILLS ==== */
 .skills { 
-  background: var(--ink); 
+  background: linear-gradient(180deg, var(--ink) 0%, var(--ink) 72%, var(--ink-soft) 100%);
 }
 .section-heading-row { 
   display: flex; 
@@ -856,8 +872,7 @@ h1 {
 
 /* ==== PROJECTS ==== */
 .projects { 
-  border-top: 1px solid rgb(32 51 75 / 60%); 
-  background: var(--ink-soft); 
+  background: linear-gradient(180deg, var(--ink-soft) 0%, var(--ink-soft) 72%, var(--ink) 100%);
 }
 .project-filters { 
   margin-top: -5px; 
@@ -1049,8 +1064,7 @@ h1 {
 
 /* ==== ENGLISH TASK ==== */
 .english-task {
-  border-top: 1px solid rgb(32 51 75 / 60%);
-  background: var(--ink);
+  background: linear-gradient(180deg, var(--ink) 0%, var(--ink) 72%, var(--ink-soft) 100%);
 }
 .english-task-grid {
   display: grid;
@@ -1120,6 +1134,7 @@ h1 {
 /* ==== CONTACT ==== */
 .contact { 
   overflow: hidden; 
+  background: linear-gradient(180deg, var(--ink-soft) 0%, var(--ink-soft) 72%, #06101c 100%);
 }
 .contact::before { 
   position: absolute; 
@@ -1186,7 +1201,7 @@ h1 {
 .contact-form { 
   padding: 24px; 
   border: 1px solid var(--line); 
-  background: var(--ink-soft); 
+  background: var(--ink-card);
 }
 .form-heading { 
   display: flex; 
